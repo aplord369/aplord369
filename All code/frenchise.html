@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>franchise</title>
+
+  <style>
+    .slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .cards {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 200px;
+      margin: 0 10px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="slider">
+    <div class="cards">
+      <div class="card"> <img src="https://www.exchange4media.com/news-photo/94347-icicimain.jpg" alt="ICICI Lombard ">
+        Card 1</div>
+      <div class="card">Card 2</div>
+      <div class="card">Card 3</div>
+      <!-- Add more cards here as needed -->
+    </div>
+    <button class="prev-btn" onclick="prevCard()">Prev</button>
+    <button class="next-btn" onclick="nextCard()">Next</button>
+  </div>
+
+  <script>
+
+    let cardIndex = 0;
+    const cards = document.querySelector('.cards');
+
+    function nextCard() {
+      cardIndex = (cardIndex + 1) % cards.children.length;
+      updateCardPosition();
+    }
+
+    function prevCard() {
+      cardIndex = (cardIndex - 1 + cards.children.length) % cards.children.length;
+      updateCardPosition();
+    }
+
+    function updateCardPosition() {
+      cards.style.transform = `translateX(${-cardIndex * (300 + 20)}px)`;
+    }
+
+  </script>
+
+</body>
+
+</html>

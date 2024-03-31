@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Image Slider</title>
+
+  <style>
+    .slider {
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .slide {
+      display: none;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    
+    .active {
+      display: block;
+    }
+    
+  </style>
+
+</head>
+<body>
+  <div class="slider">
+    <div class="slide">
+      <img src="image1.jpg" alt="Image 1">
+      <div class="caption">Caption 1</div>
+    </div>
+    <div class="slide">
+      <img src="image2.jpg" alt="Image 2">
+      <div class="caption">Caption 2</div>
+    </div>
+    <div class="slide">
+      <img src="image3.jpg" alt="Image 3">
+      <div class="caption">Caption 3</div>
+    </div>
+    <!-- Add more slides here as needed -->
+  </div>
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = 'block';
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    
+    showSlides();
+    
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
